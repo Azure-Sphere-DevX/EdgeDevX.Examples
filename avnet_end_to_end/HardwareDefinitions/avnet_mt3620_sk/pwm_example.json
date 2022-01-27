@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure-Sphere-Tools/hardware-definition-schema/master/hardware-definition-schema.json",
+  "Metadata": {
+    "Type": "Azure Sphere Hardware Definition",
+    "Version": 1
+  },
+  "Description": {
+    "Name": "Sample hardware abstraction for MT3620 RDB",
+    "MainCoreHeaderFileTopContent": [
+      "/* Copyright (c) Microsoft Corporation. All rights reserved.",
+      "   Licensed under the MIT License. */",
+      "",
+      "// This file defines the mapping from the MT3620 reference development board (RDB) to the",
+      "// 'sample hardware' abstraction used by the samples at https://github.com/Azure/azure-sphere-samples.",
+      "// Some peripherals are on-board on the RDB, while other peripherals must be attached externally if needed.",
+      "// https://docs.microsoft.com/en-us/azure-sphere/app-development/manage-hardware-dependencies",
+      "// to enable apps to work across multiple hardware variants."
+    ]
+  },
+  "Imports": [ { "Path": "avnet_mt3620_sk.json" } ],
+  "Peripherals": [
+    {
+      "Name": "PWM_CLICK_CONTROLLER",
+      "Type": "Pwm",
+      "Mapping": "AVNET_MT3620_SK_PWM_CONTROLLER0",
+      "Comment": "PWM CONTROLLER 0: channel 0 is exposed on CLICK1 (PWM), channel 1 is exposed on: CLICK2 (PWM) and PMOD (Pin 9), channel 2 is exposed on: CLICK1 (INT), CLICK2 (INT) and PMOD (Pin 7).  Pins for this controller are shared with AVNET_MT3620_SK_GPIO0, AVNET_MT3620_SK_GPIO1 and AVNET_MT3620_SK_GPIO2. If this PWM controller is requested, none of these GPIOs can be used."
+    },
+    {
+      "Name": "PWM_LED_CONTROLLER",
+      "Type": "Pwm",
+      "Mapping": "AVNET_MT3620_SK_PWM_CONTROLLER2",
+      "Comment": "PWM app pin"
+    }
+  ]
+}

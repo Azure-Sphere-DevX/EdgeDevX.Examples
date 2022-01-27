@@ -1,0 +1,119 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure-Sphere-Tools/hardware-definition-schema/master/hardware-definition-schema.json",
+    "Metadata": {
+        "Type": "Azure Sphere Hardware Definition",
+        "Version": 1
+    },
+    "Description": {
+        "Name": "Azure Sphere RemoteX Peripheral Mapping for the Avnet MT3620 Starter Kit (SK) Rev1",
+        "MainCoreHeaderFileTopContent": [
+            "/* Copyright (c) Microsoft Corporation. All rights reserved.",
+            "   Licensed under the MIT License. */",
+            "",
+            "// This file defines the mapping from the MT3620 reference development board (RDB) to the",
+            "// 'sample hardware' abstraction used by the samples at https://github.com/Azure/azure-sphere-samples.",
+            "// Some peripherals are on-board on the RDB, while other peripherals must be attached externally if needed.",
+            "// https://docs.microsoft.com/en-us/azure-sphere/app-development/manage-hardware-dependencies",
+            "// to enable apps to work across multiple hardware variants."
+        ]
+    },
+    "Imports": [
+        {
+            "Path": "avnet_mt3620_sk.json"
+        }
+    ],
+    "Peripherals": [
+        {
+            "Name": "STATUS_LED",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_APP_STATUS_LED_YELLOW",
+            "Comment": "STATUS_LED_YELLOW"
+        },
+        {
+            "Name": "WLAN_STATUS_LED_YELLOW",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_WLAN_STATUS_LED_YELLOW",
+            "Comment": "WLAN_STATUS_LED_YELLOW"
+        },
+        {
+            "Name": "USER_LED_RED",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_USER_LED_RED",
+            "Comment": "USER_LED_RED"
+        },
+        {
+            "Name": "USER_LED_GREEN",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_USER_LED_GREEN",
+            "Comment": "USER_LED_GREEN"
+        },
+        {
+            "Name": "USER_LED_BLUE",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_USER_LED_BLUE",
+            "Comment": "USER_LED_BLUE"
+        },
+        {
+            "Name": "BUTTON_A",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_USER_BUTTON_A",
+            "Comment": "Button B"
+        },
+        {
+            "Name": "BUTTON_B",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_USER_BUTTON_B",
+            "Comment": "Button B"
+        },
+        {
+            "Name": "PIN_0",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_GPIO0"
+        },
+        {
+            "Name": "PIN_1",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_GPIO1"
+        },
+        {
+            "Name": "PIN_2",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_GPIO2"
+        },
+        {
+            "Name": "PIN_16",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_GPIO16",
+            "Comment": "PIN_16"
+        },
+        {
+            "Name": "PIN_17",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_GPIO17",
+            "Comment": "PIN_16"
+        },
+        {
+            "Name": "I2C_MASTER",
+            "Type": "I2cMaster",
+            "Mapping": "AVNET_MT3620_SK_ISU2_I2C",
+            "Comment": "I2C_ISU2"
+        },
+        {
+            "Name": "SPI_MASTER",
+            "Type": "SpiMaster",
+            "Mapping": "AVNET_MT3620_SK_ISU1_SPI",
+            "Comment": "SPI_ISU1"
+        },
+        {
+            "Name": "UART",
+            "Type": "Uart",
+            "Mapping": "AVNET_MT3620_SK_ISU0_UART",
+            "Comment": "UART_ISU0"
+        },
+        {
+            "Name": "ADC",
+            "Type": "Adc",
+            "Mapping": "AVNET_MT3620_SK_ADC_CONTROLLER0"
+        }
+    ]
+}

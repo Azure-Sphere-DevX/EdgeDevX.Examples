@@ -1,0 +1,57 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure-Sphere-Tools/hardware-definition-schema/master/hardware-definition-schema.json",
+    "Metadata": {
+        "Type": "Azure Sphere Hardware Definition",
+        "Version": 1
+    },
+    "Description": {
+        "Name": "CO2 Monitor abstraction for the Avnet MT3620 Starter Kit (SK) Rev2",
+        "MainCoreHeaderFileTopContent": [
+            "/* Copyright (c) Microsoft Corporation. All rights reserved.",
+            "   Licensed under the MIT License. */",
+            "",
+            "// This file defines the mapping from the MT3620 reference development board (RDB) to the",
+            "// 'sample hardware' abstraction used by the samples at https://github.com/Azure/azure-sphere-samples.",
+            "// Some peripherals are on-board on the RDB, while other peripherals must be attached externally if needed.",
+            "// https://docs.microsoft.com/en-us/azure-sphere/app-development/manage-hardware-dependencies",
+            "// to enable apps to work across multiple hardware variants."
+        ]
+    },
+    "Imports": [
+        {
+            "Path": "avnet_mt3620_sk_rev2.json"
+        }
+    ],
+    "Peripherals": [
+        {
+            "Name": "BUTTON_B",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_USER_BUTTON_B",
+            "Comment": "Button B"
+        },
+        {
+            "Name": "AZURE_CONNECTED_LED",
+            "Type": "Gpio",
+            "Mapping": "AVNET_MT3620_SK_APP_STATUS_LED_YELLOW",
+            "Comment": "Azure connected LED"
+        },
+        {
+            "Name": "I2C_ISU2",
+            "Type": "I2cMaster",
+            "Mapping": "AVNET_MT3620_SK_ISU2_I2C",
+            "Comment": "AVNET Start Kit Definition"
+        },
+        {
+            "Name": "PWM_CLICK_CONTROLLER",
+            "Type": "Pwm",
+            "Mapping": "AVNET_MT3620_SK_PWM_CONTROLLER0",
+            "Comment": "PWM CONTROLLER 0: channel 0 is exposed on CLICK1 (PWM), channel 1 is exposed on: CLICK2 (PWM) and PMOD (Pin 9), channel 2 is exposed on: CLICK1 (INT), CLICK2 (INT) and PMOD (Pin 7).  Pins for this controller are shared with AVNET_MT3620_SK_GPIO0, AVNET_MT3620_SK_GPIO1 and AVNET_MT3620_SK_GPIO2. If this PWM controller is requested, none of these GPIOs can be used."
+        },
+        {
+            "Name": "PWM_RGB_CONTROLLER",
+            "Type": "Pwm",
+            "Mapping": "AVNET_MT3620_SK_PWM_CONTROLLER2",
+            "Comment": "PWM CONTROLLER 2: channel 0 is used by User LED Red, channel 1 is used by User LED Green, channel 2 is used by User LED Blue. Pins for this controller are shared with AVNET_MT3620_SK_USER_LED_RED, AVNET_MT3620_SK_USER_LED_GREEN, and AVNET_MT3620_SK_USER_LED_BLUE. If this PWM controller is requested, none of these GPIOs can be used."
+        }        
+    ]
+}

@@ -10,7 +10,7 @@
             "request": "launch",
             "name": "Debug",
             "program": "${workspaceFolder}/build/${workspaceFolderBasename}",
-            "args": [ "-s", "0ne000F25AF", "-d", "desktopdevx", "-k", "Mnk4T7wevKznmYcrjEGCHnlWSFDvv+/uUf6uIttPEmY=" ],
+            "args": [  ],
             "cwd": "${workspaceFolder}"            
         },
         {

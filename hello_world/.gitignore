@@ -1,0 +1,7 @@
+/out/
+/install/
+/.vs/
+/build/
+.vscode/settings.json
+Config.cmake
+.DS_STORE

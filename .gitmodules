@@ -28,3 +28,18 @@
 [submodule "direct_methods/HardwareDefinitions"]
 	path = direct_methods/HardwareDefinitions
 	url = https://github.com/Azure-Sphere-DevX/AzureSphereDevX.HardwareDefinitions.git
+[submodule "hello_world/AzureSphereRemoteX"]
+	path = hello_world/AzureSphereRemoteX
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereRemoteX.Client.git
+[submodule "hello_world/HardwareDefinitions"]
+	path = hello_world/HardwareDefinitions
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereDevX.HardwareDefinitions.git
+[submodule "environment_logger/HardwareDefinitions"]
+	path = environment_logger/HardwareDefinitions
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereDevX.HardwareDefinitions.git
+[submodule "environment_logger/AzureSphereRemoteX"]
+	path = environment_logger/AzureSphereRemoteX
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereRemoteX.Client.git
+[submodule "environment_logger/AzureSphereDrivers"]
+	path = environment_logger/AzureSphereDrivers
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereDrivers.git

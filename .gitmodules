@@ -16,3 +16,15 @@
 [submodule "avnet_end_to_end_ext/AzureSphereDrivers"]
 	path = avnet_end_to_end_ext/AzureSphereDrivers
 	url = https://github.com/Azure-Sphere-DevX/AzureSphereDrivers.git
+[submodule "device_twins/HardwareDefinitions"]
+	path = device_twins/HardwareDefinitions
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereDevX.HardwareDefinitions.git
+[submodule "device_twins/DesktopDevX"]
+	path = device_twins/DesktopDevX
+	url = https://github.com/Azure-Sphere-DevX/DesktopDevX.git
+[submodule "direct_methods/DesktopDevX"]
+	path = direct_methods/DesktopDevX
+	url = https://github.com/Azure-Sphere-DevX/DesktopDevX.git
+[submodule "direct_methods/HardwareDefinitions"]
+	path = direct_methods/HardwareDefinitions
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereDevX.HardwareDefinitions.git

@@ -4,3 +4,6 @@
 [submodule "avnet_end_to_end/DesktopDevX"]
 	path = avnet_end_to_end/DesktopDevX
 	url = https://github.com/Azure-Sphere-DevX/DesktopDevX.git
+[submodule "avnet_end_to_end/HardwareDefinitions"]
+	path = avnet_end_to_end/HardwareDefinitions
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereDevX.HardwareDefinitions.git

@@ -20,7 +20,7 @@ set(AVNET TRUE "AVNET Azure Sphere Starter Kit Revision 1")
 
 ##################################################################################################################
 # Uncomment if using AZURE SPHERE REMOTE remote peripheral over network access
-add_compile_definitions(AZURE_SPHERE_REMOTEX_IP="192.168.10.116")
+add_compile_definitions(AZURE_SPHERE_REMOTEX_IP="192.168.10.117")
 ##################################################################################################################
 
 

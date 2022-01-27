@@ -13,9 +13,6 @@
 [submodule "avnet_end_to_end_ext/DesktopDevX"]
 	path = avnet_end_to_end_ext/DesktopDevX
 	url = https://github.com/Azure-Sphere-DevX/DesktopDevX.git
-[submodule "avnet_end_to_end_etx/AzureSphereDrivers"]
-	path = avnet_end_to_end_etx/AzureSphereDrivers
-	url = https://github.com/Azure-Sphere-DevX/AzureSphereDrivers.git
 [submodule "avnet_end_to_end_ext/AzureSphereDrivers"]
 	path = avnet_end_to_end_ext/AzureSphereDrivers
 	url = https://github.com/Azure-Sphere-DevX/AzureSphereDrivers.git

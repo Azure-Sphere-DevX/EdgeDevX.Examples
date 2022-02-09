@@ -10,12 +10,12 @@ target_link_libraries(${PROJECT_NAME} applibs)
 
 include(RemoteX.cmake)
 
-set(ENABLE_DESKTOP_DEVX_REMOTEX ON CACHE  BOOL "ENABLE DesktopDevX RemoteX peripheral support" FORCE )
+set(ENABLE_EDGE_DEVX_REMOTEX ON CACHE  BOOL "ENABLE EdgeDevX RemoteX peripheral support" FORCE )
 
 ################################################################################
-# Following lines required for DesktopDevX
-add_subdirectory("DesktopDevX" desktop_devx)
-target_link_libraries(${PROJECT_NAME} "desktop_devx")
+# Following lines required for EdgeDevX
+add_subdirectory("EdgeDevX" edge_devx)
+target_link_libraries(${PROJECT_NAME} "edge_devx")
 ################################################################################
 
 

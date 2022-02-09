@@ -5,21 +5,21 @@ string(REPLACE " " "_" ProjectId ${ProjectId})
 project(${ProjectId}  VERSION 1.1.0)
 
 # Not using RemoteX applib for this example
-set(ENABLE_DESKTOP_DEVX_REMOTEX OFF CACHE  BOOL "ENABLE DesktopDevX RemoteX peripheral support" FORCE )
+set(ENABLE_EDGE_DEVX_REMOTEX OFF CACHE  BOOL "ENABLE EdgeDevX RemoteX peripheral support" FORCE )
 
 include(RemoteX.cmake)
 
 # Add Project Files
 add_executable(${PROJECT_NAME} main.c)
 
-if (ENABLE_DESKTOP_DEVX_REMOTEX)
+if (ENABLE_EDGE_DEVX_REMOTEX)
     target_link_libraries(${PROJECT_NAME} applibs)
-endif(ENABLE_DESKTOP_DEVX_REMOTEX)
+endif(ENABLE_EDGE_DEVX_REMOTEX)
 
 ################################################################################
-# Following lines required for DesktopDevX
-add_subdirectory("DesktopDevX" desktop_devx)
-target_link_libraries(${PROJECT_NAME} "desktop_devx")
+# Following lines required for EdgeDevX
+add_subdirectory("EdgeDevX" edge_devx)
+target_link_libraries(${PROJECT_NAME} "edge_devx")
 ################################################################################
 
 # Set hardware definitons

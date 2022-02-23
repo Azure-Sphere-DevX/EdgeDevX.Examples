@@ -18,7 +18,6 @@
 
 // https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play
 #define IOT_PLUG_AND_PLAY_MODEL_ID "dtmi:com:example:azuresphere:labmonitor;1"
-#define NETWORK_INTERFACE "wlan0"
 #define SAMPLE_VERSION_NUMBER "1.0"
 
 // Forward declarations
@@ -73,9 +72,9 @@ static DX_DEVICE_TWIN_BINDING dt_softwareVersion = {.propertyName = "SoftwareVer
 static DX_GPIO_BINDING gpio_led = {.pin = USER_LED_RED, .name = "gpio_led", .direction = DX_OUTPUT, .initialState = GPIO_Value_Low, .invertPin = true};
 static DX_GPIO_BINDING gpio_network_led = {.pin = WLAN_STATUS_LED_YELLOW, .name = "gpio_network_led", .direction = DX_OUTPUT, .initialState = GPIO_Value_Low, .invertPin = true};
 
-static DX_TIMER_BINDING tmr_publish_message = {.period = {4, 0}, .name = "tmr_publish_message", .handler = publish_message_handler};
-static DX_TIMER_BINDING tmr_read_sensor = {.period = {4, 0}, .name = "tmr_report_properties", .handler = read_sensor_handler};
-static DX_TIMER_BINDING tmr_report_properties = {.period = {5, 0}, .name = "tmr_report_properties", .handler = report_properties_handler};
+static DX_TIMER_BINDING tmr_publish_message = {.repeat = &(struct timespec){4, 0}, .name = "tmr_publish_message", .handler = publish_message_handler};
+static DX_TIMER_BINDING tmr_read_sensor = {.repeat = &(struct timespec){4, 0}, .name = "tmr_report_properties", .handler = read_sensor_handler};
+static DX_TIMER_BINDING tmr_report_properties = {.repeat = &(struct timespec){5, 0}, .name = "tmr_report_properties", .handler = report_properties_handler};
 
 static DX_DIRECT_METHOD_BINDING dm_light_on = {.methodName = "LightOn", .handler = LightOnHandler, .context = &gpio_led};
 static DX_DIRECT_METHOD_BINDING dm_light_off = {.methodName = "LightOff", .handler = LightOffHandler, .context = &gpio_led};

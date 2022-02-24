@@ -109,17 +109,17 @@ static DX_GPIO_BINDING gpio_wlan = {.pin = WLAN_STATUS_LED_YELLOW, .direction = 
  * declare timer bindings
  **********************************************************************************************************/
 
-static DX_TIMER_BINDING tmr_buttonPressCheckTimer = {.period = {0, 100 * ONE_MS}, .name = "tmr_buttonPressCheckTimer", .handler = ButtonPressCheckHandler};
+static DX_TIMER_BINDING tmr_buttonPressCheckTimer = {.repeat = &(struct timespec){0, 100 * ONE_MS}, .name = "tmr_buttonPressCheckTimer", .handler = ButtonPressCheckHandler};
 static DX_TIMER_BINDING tmr_publish_buzzer_off_oneshot = {.name = "tmr_publish_buzzer_off_oneshot", .handler = publish_buzzer_off_handler};
 static DX_TIMER_BINDING tmr_publish_led_off = {.name = "tmr_publish_led_off", .handler = publish_led_off_handler};
-static DX_TIMER_BINDING tmr_publish_message = {.period = {4, 0}, .name = "tmr_publish_message", .handler = publish_message_handler};
-static DX_TIMER_BINDING tmr_read_environment = {.period = {30, 0}, .name = "tmr_read_environment", .handler = read_telemetry_handler};
-static DX_TIMER_BINDING tmr_read_light_level = {.period = {2, 0}, .name = "tmr_read_light_level", .handler = tmr_read_light_level_handler};
-static DX_TIMER_BINDING tmr_read_panel_buttons = {.period = {0, 250 * ONE_MS}, .name = "tmr_read_panel_buttons", .handler = tmr_read_panel_buttons_handler};
-static DX_TIMER_BINDING tmr_read_pm_sensor = {.period = {15, 0}, .name = "tmr_read_pm_sensor", .handler = tmr_read_pm_sensor_handler};
-static DX_TIMER_BINDING tmr_temperature_alert = {.period = {1, 0}, .name = "tmr_temperature_alert", .handler = alert_temperature_handler};
-static DX_TIMER_BINDING tmr_update_device_twins = {.period = {10, 0}, .name = "tmr_update_device_twins", .handler = update_device_twins_handler};
-static DX_TIMER_BINDING tmr_update_display = {.period = {0, 500 * ONE_MS}, .name = "tmr_update_display", .handler = tmr_update_display_handler};
+static DX_TIMER_BINDING tmr_publish_message = {.repeat = &(struct timespec){4, 0}, .name = "tmr_publish_message", .handler = publish_message_handler};
+static DX_TIMER_BINDING tmr_read_environment = {.repeat = &(struct timespec){30, 0}, .name = "tmr_read_environment", .handler = read_telemetry_handler};
+static DX_TIMER_BINDING tmr_read_light_level = {.repeat = &(struct timespec){2, 0}, .name = "tmr_read_light_level", .handler = tmr_read_light_level_handler};
+static DX_TIMER_BINDING tmr_read_panel_buttons = {.repeat = &(struct timespec){0, 250 * ONE_MS}, .name = "tmr_read_panel_buttons", .handler = tmr_read_panel_buttons_handler};
+static DX_TIMER_BINDING tmr_read_pm_sensor = {.repeat = &(struct timespec){15, 0}, .name = "tmr_read_pm_sensor", .handler = tmr_read_pm_sensor_handler};
+static DX_TIMER_BINDING tmr_temperature_alert = {.repeat = &(struct timespec){1, 0}, .name = "tmr_temperature_alert", .handler = alert_temperature_handler};
+static DX_TIMER_BINDING tmr_update_device_twins = {.repeat = &(struct timespec){10, 0}, .name = "tmr_update_device_twins", .handler = update_device_twins_handler};
+static DX_TIMER_BINDING tmr_update_display = {.repeat = &(struct timespec){0, 500 * ONE_MS}, .name = "tmr_update_display", .handler = tmr_update_display_handler};
 
 /***********************************************************************************************************
  * declare device twin bindings

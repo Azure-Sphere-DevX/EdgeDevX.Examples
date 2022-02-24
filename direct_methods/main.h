@@ -23,7 +23,7 @@ static char debug_msg_buffer[128] = {0};
 /****************************************************************************************
  * Timer Bindings
  ****************************************************************************************/
-static DX_TIMER_BINDING led_off_oneshot_timer = {.repeat = &(struct timespec){0, 0}, .name = "led_off_oneshot_timer", .handler = LedOffToggleHandler};
+static DX_TIMER_BINDING led_off_oneshot_timer = {.name = "led_off_oneshot_timer", .handler = LedOffToggleHandler};
 
 /****************************************************************************************
  * Azure IoT Direct Method Bindings

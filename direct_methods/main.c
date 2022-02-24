@@ -94,7 +94,7 @@ static void ConnectionStatus(bool connection_state)
 static void InitPeripheralsAndHandlers(void)
 {
     dx_Log_Debug_Init(debug_msg_buffer, sizeof(debug_msg_buffer));
-    dx_azureConnect(&dx_config, NETWORK_INTERFACE, IOT_PLUG_AND_PLAY_MODEL_ID);
+    dx_azureConnect(&dx_config, dx_config.network_interface, IOT_PLUG_AND_PLAY_MODEL_ID);
     dx_timerSetStart(timers, NELEMS(timers));
     dx_directMethodSubscribe(direct_method_bindings, NELEMS(direct_method_bindings));
 

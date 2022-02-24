@@ -10,7 +10,6 @@
 
 // https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play
 #define IOT_PLUG_AND_PLAY_MODEL_ID "dtmi:com:example:azuresphere:labmonitor;1"
-#define NETWORK_INTERFACE "wlan0"
 
 // Forward declarations
 static DX_DECLARE_DIRECT_METHOD_HANDLER(LightControlHandler);
@@ -24,7 +23,7 @@ static char debug_msg_buffer[128] = {0};
 /****************************************************************************************
  * Timer Bindings
  ****************************************************************************************/
-static DX_TIMER_BINDING led_off_oneshot_timer = {.period = {0, 0}, .name = "led_off_oneshot_timer", .handler = LedOffToggleHandler};
+static DX_TIMER_BINDING led_off_oneshot_timer = {.repeat = &(struct timespec){0, 0}, .name = "led_off_oneshot_timer", .handler = LedOffToggleHandler};
 
 /****************************************************************************************
  * Azure IoT Direct Method Bindings

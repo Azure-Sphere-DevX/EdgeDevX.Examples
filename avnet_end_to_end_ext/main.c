@@ -331,7 +331,7 @@ static void InitPeripheralsAndHandlers(void)
     dx_Log_Debug("%s\n", "Application starting");
     dx_Log_Debug("--------------------\n\n");
 
-    dx_azureConnect(&dx_config, NETWORK_INTERFACE, IOT_PLUG_AND_PLAY_MODEL_ID);
+    dx_azureConnect(&dx_config, dx_config.network_interface, IOT_PLUG_AND_PLAY_MODEL_ID);
     dx_gpioSetOpen(gpio_bindings, NELEMS(gpio_bindings));
     dx_pwmSetOpen(pwm_bindings, NELEMS(pwm_bindings));
     dx_i2cSetOpen(i2c_bindings, NELEMS(i2c_bindings));

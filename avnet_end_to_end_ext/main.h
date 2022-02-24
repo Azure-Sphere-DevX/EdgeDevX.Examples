@@ -32,7 +32,6 @@
 
 // https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play
 #define IOT_PLUG_AND_PLAY_MODEL_ID "dtmi:com:example:azuresphere:labmonitor;1"
-#define NETWORK_INTERFACE "wlan0"
 #define SAMPLE_VERSION_NUMBER "1.0"
 
 /***********************************************************************************************************

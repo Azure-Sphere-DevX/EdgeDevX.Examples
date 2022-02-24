@@ -15,8 +15,6 @@
 // https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play
 #define IOT_PLUG_AND_PLAY_MODEL_ID "dtmi:com:example:azuresphere:labmonitor;1"
 
-#define NETWORK_INTERFACE "wlan0"
-
 // Number of bytes to allocate for the JSON telemetry message for IoT Central
 #define JSON_MESSAGE_BYTES 256
 static char msgBuffer[JSON_MESSAGE_BYTES] = {0};
@@ -62,8 +60,8 @@ static DX_MESSAGE_CONTENT_PROPERTIES contentProperties = {.contentEncoding = "ut
 /****************************************************************************************
  * Bindings
  ****************************************************************************************/
-static DX_TIMER_BINDING report_now_timer = {.period = {6, 0}, .name = "report_now_timer", .handler = report_now_handler};
-static DX_TIMER_BINDING tmr_read_sensor = {.period = {2, 0}, .name = "tmr_report_properties", .handler = read_sensor_handler};
+static DX_TIMER_BINDING report_now_timer = {.repeat = &(struct timespec){6, 0}, .name = "report_now_timer", .handler = report_now_handler};
+static DX_TIMER_BINDING tmr_read_sensor = {.repeat = &(struct timespec){2, 0}, .name = "tmr_report_properties", .handler = read_sensor_handler};
 
 
 // All bindings referenced in the bindings sets will be initialised in the

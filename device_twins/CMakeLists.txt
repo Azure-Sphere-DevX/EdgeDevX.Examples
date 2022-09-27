@@ -4,17 +4,10 @@ get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 string(REPLACE " " "_" ProjectId ${ProjectId})
 project(${ProjectId}  VERSION 1.1.0)
 
-# Not using RemoteX applib for this example
-set(ENABLE_EDGE_DEVX_REMOTEX OFF CACHE  BOOL "ENABLE EdgeDevX RemoteX peripheral support" FORCE )
-
 include(RemoteX.cmake)
 
 # Add Project Files
 add_executable(${PROJECT_NAME} main.c)
-
-if (ENABLE_EDGE_DEVX_REMOTEX)
-    target_link_libraries(${PROJECT_NAME} applibs)
-endif(ENABLE_EDGE_DEVX_REMOTEX)
 
 ################################################################################
 # Following lines required for EdgeDevX

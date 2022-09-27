@@ -43,3 +43,9 @@
 [submodule "avnet_end_to_end/EdgeDevX"]
 	path = avnet_end_to_end/EdgeDevX
 	url = https://github.com/Azure-Sphere-DevX/EdgeDevX.git
+[submodule "avnet_end_to_end/AzureSphereRemoteX"]
+	path = avnet_end_to_end/AzureSphereRemoteX
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereRemoteX.Client.git
+[submodule "avnet_end_to_end_ext/AzureSphereRemoteX"]
+	path = avnet_end_to_end_ext/AzureSphereRemoteX
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereRemoteX.Client.git

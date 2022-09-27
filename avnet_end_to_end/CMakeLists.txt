@@ -4,19 +4,54 @@ get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 string(REPLACE " " "_" ProjectId ${ProjectId})
 project(${ProjectId}  VERSION 1.1.0)
 
-# Add Project Files
-add_executable(${PROJECT_NAME} main.c)
-target_link_libraries(${PROJECT_NAME} applibs)
-
 include(RemoteX.cmake)
 
 set(ENABLE_EDGE_DEVX_REMOTEX ON CACHE  BOOL "ENABLE EdgeDevX RemoteX peripheral support" FORCE )
+
+# Enable or disable RemoteX Peripheral support
+if (ENABLE_EDGE_DEVX_REMOTEX)
+
+    set(Peripherals
+        "EdgeDevX/src/dx_gpio.c"
+        "EdgeDevX/src/dx_i2c.c"
+        "EdgeDevX/src/dx_pwm.c"
+    )
+    source_group("Peripherals" FILES ${Peripherals})
+
+endif(ENABLE_EDGE_DEVX_REMOTEX)
+
+set(ALL_FILES
+    main.c
+    ${Peripherals}
+)
+
+# Add Project Files
+add_executable(${PROJECT_NAME} ${ALL_FILES})
+target_link_libraries(${PROJECT_NAME} applibs)
 
 ################################################################################
 # Following lines required for EdgeDevX
 add_subdirectory("EdgeDevX" edge_devx)
 target_link_libraries(${PROJECT_NAME} "edge_devx")
 ################################################################################
+
+# Enable or disable RemoteX Peripheral support
+if (ENABLE_EDGE_DEVX_REMOTEX)
+   # ################################################################################
+   # # The following line required for the AzureSphereRemoteX.Client library
+   add_subdirectory("AzureSphereRemoteX" applibs)
+   target_link_libraries(${PROJECT_NAME} applibs)
+   # ################################################################################
+endif(ENABLE_EDGE_DEVX_REMOTEX)
+
+# Enable or disable RemoteX Peripheral support
+if (ENABLE_EDGE_DEVX_REMOTEX)
+   message(STATUS "RemoteX Peripherals Enabled")
+   # Following line required for Azure Sphere RemoteX Client library
+   target_include_directories(${PROJECT_NAME} PUBLIC AzureSphereRemoteX )
+else (ENABLE_EDGE_DEVX_REMOTEX)
+   message(STATUS "RemoteX Peripherals Disabled")
+endif(ENABLE_EDGE_DEVX_REMOTEX)
 
 
 # Set hardware definitons

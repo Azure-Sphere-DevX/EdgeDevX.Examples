@@ -55,3 +55,9 @@
 [submodule "retro_click_driver/AzureSphereDrivers"]
 	path = retro_click_driver/AzureSphereDrivers
 	url = https://github.com/Azure-Sphere-DevX/AzureSphereDrivers.git
+[submodule "retro_click_driver/AzureSphereRemoteX"]
+	path = retro_click_driver/AzureSphereRemoteX
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereRemoteX.Client.git
+[submodule "retro_click_driver/HardwareDefinitions"]
+	path = retro_click_driver/HardwareDefinitions
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereDevX.HardwareDefinitions.git

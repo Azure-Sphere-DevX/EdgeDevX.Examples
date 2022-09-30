@@ -10,13 +10,14 @@ Simple GPIO demo - open button as input, open relay as output
 #include <unistd.h>
 
 #define ONE_MS 1000000
+#define GPIO_PIN USER_LED_RED
 
 bool GetGpioState(GPIO_Value_Type *oldState);
 void ClosePeripheralsAndHandlers(void);
 void InitPeripheralsAndHandlers(void);
 
 GPIO_Value_Type oldButtonState;
-bool toggle_relay = false;
+bool toggle_relay = true;
 int fd_button = -1;
 int fd_relay = -1;
 int press_count = 0;
@@ -41,7 +42,7 @@ int main(int argc, char *argv[])
 
 void InitPeripheralsAndHandlers(void)
 {
-    fd_relay = GPIO_OpenAsOutput(PIN_0, GPIO_OutputMode_PushPull, GPIO_Value_Low);
+    fd_relay = GPIO_OpenAsOutput(GPIO_PIN, GPIO_OutputMode_PushPull, GPIO_Value_Low);
     fd_button = GPIO_OpenAsInput(BUTTON_A);
 }
 

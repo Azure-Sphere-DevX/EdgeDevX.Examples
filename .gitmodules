@@ -52,3 +52,6 @@
 [submodule "async_example/EdgeDevX"]
 	path = async_example/EdgeDevX
 	url = https://github.com/Azure-Sphere-DevX/EdgeDevX.git
+[submodule "retro_click_driver/AzureSphereDrivers"]
+	path = retro_click_driver/AzureSphereDrivers
+	url = https://github.com/Azure-Sphere-DevX/AzureSphereDrivers.git

@@ -15,10 +15,6 @@ Simple GPIO demo - open button as input, open relay as output
 #define ONE_MS 1000000
 #define GPIO_PIN USER_LED_RED
 
-bool GetGpioState(GPIO_Value_Type *oldState);
-void ClosePeripheralsAndHandlers(void);
-void InitPeripheralsAndHandlers(void);
-
 GPIO_Value_Type oldButtonState;
 bool toggle_relay = true;
 int fd_button = -1;
@@ -54,12 +50,11 @@ void ClosePeripheralsAndHandlers(void)
 {
     close(fd_relay);
     close(fd_button);
+    close(retro_click.handle);
 }
 
 int main(int argc, char *argv[])
 {
-    char letter = ' ';
-
     InitPeripheralsAndHandlers();
 
     while (true)
@@ -69,31 +64,21 @@ int main(int argc, char *argv[])
             GPIO_SetValue(fd_relay, (toggle_relay = !toggle_relay) ? GPIO_Value_High : GPIO_Value_Low);
             Log_Debug("Button pressed (%d)\n", ++press_count);
 
-            for (size_t i = 0; i < 1000000; i++)
+            for (size_t letter = ' '; letter <= 'z'; letter++)
             {
-                for (char i = ' '; i <= 'z'; i++)
-                {
-                    gfx_load_character(i, retro_click.bitmap);
+                gfx_load_character(letter, retro_click.bitmap);
 
-                    gfx_rotate_counterclockwise(retro_click.bitmap, 1, 1, retro_click.bitmap);
-                    gfx_reverse_panel(retro_click.bitmap);
-                    gfx_rotate_counterclockwise(retro_click.bitmap, 1, 1, retro_click.bitmap);
+                gfx_rotate_counterclockwise(retro_click.bitmap, 1, 1, retro_click.bitmap);
+                gfx_reverse_panel(retro_click.bitmap);
+                gfx_rotate_counterclockwise(retro_click.bitmap, 1, 1, retro_click.bitmap);
 
-                    as1115_panel_write(&retro_click);
+                as1115_panel_write(&retro_click);
 
-                    nanosleep(&(struct timespec){0, 50 * ONE_MS}, NULL);
-                }
+                nanosleep(&(struct timespec){0, 50 * ONE_MS}, NULL);
             }
 
-            gfx_load_character(letter, retro_click.bitmap);
-
-            gfx_rotate_counterclockwise(retro_click.bitmap, 1, 1, retro_click.bitmap);
-            gfx_reverse_panel(retro_click.bitmap);
-            gfx_rotate_counterclockwise(retro_click.bitmap, 1, 1, retro_click.bitmap);
-
+            as1115_clear(&retro_click);
             as1115_panel_write(&retro_click);
-
-            letter = ++letter > 'z' ? ' ' : letter;
         }
         nanosleep(&(struct timespec){0, 50 * ONE_MS}, NULL);
     }

@@ -10,6 +10,8 @@
 #include "dx_timer.h"
 #include "dx_utilities.h"
 
+#include <ctype.h>
+#include <stdlib.h>
 #include <time.h>
 
 // https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play

@@ -14,6 +14,33 @@ This example was tested on
 | Blue LED | GPIO_117 |
 | Button | GPIO_115 |
 
+## References
+
+- [gpiod documentation](https://libgpiod-dlang.dpldocs.info/gpiod.html)
+- [GPIO Programming: Exploring the libgpiod Library](https://www.ics.com/blog/gpio-programming-exploring-libgpiod-library)
+- [Control GPIO using the new Linux user space GPIO API](https://blog.lxsang.me/post/id/33)
+- [How To Install libgpiod-dev on Ubuntu 20.04](https://installati.one/ubuntu/20.04/libgpiod-dev/)
+
+## Library support
+
+```bash
+sudo apt -y install libgpiod-dev gpiod
+```
+   
+## Raspberry Pi Notes:
+
+- All GPIOs are on GPIO Chip 0
+
+## Beaglebone GPIO notes.
+
+- [Beaglebone 10](https://beagleboard.org/support/bone101)
+- 4 x gpio chips with 32 lines.
+- To calculate the GPIO chip number and line number
+  - Example, take the GPIO Number of 49.
+  - Chip number = (49 / 32) = chip number = 1 , line number = 49 % 32 = 17
+
+## EdgeDevX
+
 - Refer to the [EdgeDevX and Azure Sphere RemoteX wiki](https://github.com/Azure-Sphere-DevX/EdgeDevX.Examples/wiki) for documentation and introduction videos.
 
 - Refer to the [Getting started with Azure Sphere DevX and RemoteX Examples](https://github.com/Azure-Sphere-DevX/EdgeDevX.Examples/wiki/05-Getting-started-examples) wiki for documentation and introduction videos.

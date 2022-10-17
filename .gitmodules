@@ -61,3 +61,6 @@
 [submodule "retro_click_driver/HardwareDefinitions"]
 	path = retro_click_driver/HardwareDefinitions
 	url = https://github.com/Azure-Sphere-DevX/AzureSphereDevX.HardwareDefinitions.git
+[submodule "gpio_on_linux/EdgeDevX"]
+	path = gpio_on_linux/EdgeDevX
+	url = https://github.com/Azure-Sphere-DevX/EdgeDevX.git

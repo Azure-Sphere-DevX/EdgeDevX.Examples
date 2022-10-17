@@ -4,6 +4,8 @@ get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 string(REPLACE " " "_" ProjectId ${ProjectId})
 project(${ProjectId} VERSION 1.1.0)
 
+set(AZURE_IOT_SUPPORT OFF CACHE BOOL "Disable Azure Cloud support for the project" FORCE )
+
 set(ALL_FILES
     main.c
 )

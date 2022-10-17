@@ -11,18 +11,18 @@ set(ENABLE_EDGE_DEVX_REMOTEX ON CACHE  BOOL "ENABLE EdgeDevX RemoteX peripheral 
 # Enable or disable RemoteX Peripheral support
 if (ENABLE_EDGE_DEVX_REMOTEX)
 
-    set(Peripherals
-        "EdgeDevX/src/dx_gpio.c"
+    set(RemotexPeripherals
+        "EdgeDevX/src/rx_gpio.c"
         "EdgeDevX/src/dx_i2c.c"
         "EdgeDevX/src/dx_pwm.c"
     )
-    source_group("Peripherals" FILES ${Peripherals})
+    source_group("RemotexPeripherals" FILES ${RemotexPeripherals})
 
 endif(ENABLE_EDGE_DEVX_REMOTEX)
 
 set(ALL_FILES
     main.c
-    ${Peripherals}
+    ${RemotexPeripherals}
 )
 
 # Add Project Files

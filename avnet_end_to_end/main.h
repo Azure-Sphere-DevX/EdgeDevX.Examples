@@ -7,7 +7,6 @@
 #include "dx_config.h"
 #include "dx_device_twins.h"
 #include "dx_direct_methods.h"
-#include "dx_gpio.h"
 #include "dx_json_serializer.h"
 #include "dx_terminate.h"
 #include "dx_terminate.h"
@@ -15,6 +14,9 @@
 #include "dx_utilities.h"
 #include "dx_version.h"
 #include <applibs/log.h>
+
+// NOTE: You must rename rx_gpio to dx_gpio in the following line when copying to an Azure Sphere project
+#include "rx_gpio.h"
 
 // https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play
 #define IOT_PLUG_AND_PLAY_MODEL_ID "dtmi:com:example:azuresphere:labmonitor;1"

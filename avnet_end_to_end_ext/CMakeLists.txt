@@ -12,7 +12,7 @@ set(ENABLE_EDGE_DEVX_REMOTEX ON CACHE  BOOL "ENABLE EdgeDevX RemoteX peripheral 
 if (ENABLE_EDGE_DEVX_REMOTEX)
 
     set(Peripherals
-        "EdgeDevX/src/dx_gpio.c"
+        "EdgeDevX/src/rx_gpio.c"
         "EdgeDevX/src/dx_i2c.c"
         "EdgeDevX/src/dx_pwm.c"
     )

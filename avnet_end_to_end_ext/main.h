@@ -7,7 +7,6 @@
 #include "dx_config.h"
 #include "dx_device_twins.h"
 #include "dx_direct_methods.h"
-#include "dx_gpio.h"
 #include "dx_i2c.h"
 #include "dx_json_serializer.h"
 #include "dx_pwm.h"
@@ -19,6 +18,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include "logger.h"
+
+// NOTE: You must rename rx_gpio to dx_gpio in the following line when copying to an Azure Sphere project
+#include "rx_gpio.h"
 
 #include "74HC165.h"
 #include "applibs/remotex.h"

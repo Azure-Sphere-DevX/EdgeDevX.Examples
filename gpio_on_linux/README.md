@@ -30,6 +30,7 @@ sudo apt -y install libgpiod-dev gpiod
 ## Raspberry Pi Notes:
 
 - All GPIOs are on GPIO Chip 0
+- [Raspberry Pi pinouts](https://pinout.xyz/)
 
 ## Beaglebone GPIO notes.
 

@@ -33,7 +33,7 @@ sudo apt -y install libgpiod-dev gpiod
 
 ## Beaglebone GPIO notes.
 
-- [Beaglebone 10](https://beagleboard.org/support/bone101)
+- [Beaglebone 101 Information on GPIO pins](https://beagleboard.org/support/bone101)
 - 4 x gpio chips with 32 lines.
 - To calculate the GPIO chip number and line number
   - Example, take the GPIO Number of 49.

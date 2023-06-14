@@ -64,3 +64,6 @@
 [submodule "gpio_on_linux/EdgeDevX"]
 	path = gpio_on_linux/EdgeDevX
 	url = https://github.com/Azure-Sphere-DevX/EdgeDevX.git
+[submodule "simple_publish/EdgeDevX"]
+	path = simple_publish/EdgeDevX
+	url = https://github.com/Azure-Sphere-DevX/EdgeDevX.git

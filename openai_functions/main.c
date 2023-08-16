@@ -1,3 +1,18 @@
+/* Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
+ *
+ * This example demonstrates how to use the OpenAI function.
+ * To use this example, you must first create an OpenAI account and create an OPENAI_API_KEY.
+ * For this sample, the OPENAI_API_KEY is passed as a command line argument.
+ *
+ * This example is built on the EdgeDevX library.
+ *   1. DevX is an Open Source community-maintained implementation of the Azure Sphere SDK samples.
+ *   2. DevX is a modular library that simplifies common development scenarios.
+ *        - You can focus on your solution, not the plumbing.
+ *   3. DevX documentation is maintained at https://github.com/Azure-Sphere-DevX/EdgeDevX.Examples/wiki
+ *
+ ************************************************************************************************/
+
 #include <stdio.h>
 #include "parson.h"
 #include <stdlib.h>
@@ -6,7 +21,6 @@
 void openai_function_handler(const char *content, const char *finish_reason, const char *function_call_name, const char *function_call_arguments);
 
 DX_OPENAI_FUNCTION_CTX ctx = {
-    .user_msg = "turn on the kitchen light and set the color to red and brightness to 50%",
     .temperature = 0.0,
     .max_tokens = 64,
     .openai_function_handler = openai_function_handler};
@@ -23,13 +37,13 @@ void openai_function_handler(const char *content, const char *finish_reason, con
 
 int main(int argc, char *argv[])
 {
-    printf("%s\n", argv[1]);
+    // passes in the OPENAI_API_KEY as a command line argument
     dx_openai_function_init(&ctx, "function.json", argc > 1 ? argv[1] : NULL);
 
     ctx.user_msg = "turn on the kitchen light and set the color to red and brightness to 50%";
     dx_openai_function_post_request(&ctx);
 
-    ctx.user_msg = "turn on the kitchen light and set the color to blue and brightness to high";
+    ctx.user_msg = "turn on the bedroom light and set the color to blue and brightness to high";
     dx_openai_function_post_request(&ctx);
 
     dx_openai_function_free(&ctx);

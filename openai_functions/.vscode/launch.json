@@ -10,7 +10,7 @@
             "request": "launch",
             "name": "Debug",
             "program": "${workspaceFolder}/build/openai_functions",
-            "args": [ "OPENAI API KEY" ],
+            "args": [ "OPENAI_API_KEY" ],
             "cwd": "${workspaceFolder}"            
         },
         {

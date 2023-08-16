@@ -13,10 +13,11 @@
  *
  ************************************************************************************************/
 
-#include <stdio.h>
-#include "parson.h"
-#include <stdlib.h>
 #include "dx_openai_functions.h"
+#include "parson.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void openai_function_handler(const char *content, const char *finish_reason, const char *function_call_name, const char *function_call_arguments);
 
@@ -37,8 +38,14 @@ void openai_function_handler(const char *content, const char *finish_reason, con
 
 int main(int argc, char *argv[])
 {
+    if (argc < 2 || !strcmp(argv[1], "OPENAI_API_KEY"))
+    {
+        printf("Expected OpenAI API Key as first command line argument\n");
+        exit(1);
+    }
+
     // passes in the OPENAI_API_KEY as a command line argument
-    dx_openai_function_init(&ctx, "function.json", argc > 1 ? argv[1] : NULL);
+    dx_openai_function_init(&ctx, "function.json", argv[1]);
 
     ctx.user_msg = "turn on the kitchen light and set the color to red and brightness to 50%";
     dx_openai_function_post_request(&ctx);

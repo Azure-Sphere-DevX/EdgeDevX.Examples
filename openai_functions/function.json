@@ -1,0 +1,121 @@
+{
+    "model": "gpt-3.5-turbo-0613",
+    "temperature": 0.0,
+    "messages":[
+        {"role": "user", "content": "You are a home automation assistant and you can only help with home automation."},
+        {"role": "system", "content": "Start all responses with I'm a home automation assistant."},
+        {"role": "system", "content": "Ask for the device if unsure. Device names have no spaces."},
+        {"role": "system", "content": "Only use the functions you have been provided with."}
+    ],
+    "functions": [
+        {
+            "name": "set_light_state",
+            "description": "Turn a light on or off and set it to a given color and brightness",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "device": {
+                        "type": "string",
+                        "description": "The light device name",
+                        "enum": [
+                            "Lounge",
+                            "bedroom",
+                            "hallway",
+                            "balcony",
+                            "kitchen",
+                            "bathroom",
+                            "toilet",
+                            "garage",
+                            "garden",
+                            "frontdoor"
+                        ]
+                    },
+                    "state": {
+                        "type": "string",
+                        "enum": [
+                            "on",
+                            "off"
+                        ]
+                    },
+                    "brightness": {
+                        "type": "string",
+                        "enum": [
+                            "low",
+                            "medium",
+                            "high"
+                        ]
+                    },
+                    "color": {
+                        "type": "string",
+                        "enum": [
+                            "red",
+                            "white",
+                            "blue",
+                            "green",
+                            "yellow",
+                            "purple",
+                            "orange",
+                            "pink",
+                            "cyan",
+                            "magenta",
+                            "lime",
+                            "indigo",
+                            "teal",
+                            "olive",
+                            "brown",
+                            "black",
+                            "grey",
+                            "silver",
+                            "gold",
+                            "bronze",
+                            "platinum",
+                            "rainbow"
+                        ]
+                    }
+                },
+                "required": [
+                    "device"
+                ]
+            }
+        },
+        {
+            "name": "whats_the_time",
+            "description": "Get the current time for a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city or timezone"
+                    }
+                },
+                "required": [
+                    "location"
+                ]
+            }
+        },
+        {
+            "name": "get_current_weather",
+            "description": "Get the current weather in a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city and state, e.g. San Francisco, CA"
+                    },
+                    "unit": {
+                        "type": "string",
+                        "enum": [
+                            "celsius",
+                            "fahrenheit"
+                        ]
+                    }
+                },
+                "required": [
+                    "location"
+                ]
+            }
+        }
+    ]
+}

@@ -23,12 +23,14 @@ void openai_function_handler(const char *content, const char *finish_reason, con
 
 int main(int argc, char *argv[])
 {
+    printf("%s\n", argv[1]);
     dx_openai_function_init(&ctx, "function.json", argc > 1 ? argv[1] : NULL);
 
-    for (int i = 0; i < 1; i++)
-    {
-        dx_openai_function_post_request(&ctx);
-    }
+    ctx.user_msg = "turn on the kitchen light and set the color to red and brightness to 50%";
+    dx_openai_function_post_request(&ctx);
+
+    ctx.user_msg = "turn on the kitchen light and set the color to blue and brightness to high";
+    dx_openai_function_post_request(&ctx);
 
     dx_openai_function_free(&ctx);
 

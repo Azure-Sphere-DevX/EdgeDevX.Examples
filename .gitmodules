@@ -67,3 +67,6 @@
 [submodule "simple_publish/EdgeDevX"]
 	path = simple_publish/EdgeDevX
 	url = https://github.com/Azure-Sphere-DevX/EdgeDevX.git
+[submodule "openai_functions/EdgeDevX"]
+	path = openai_functions/EdgeDevX
+	url = https://github.com/Azure-Sphere-DevX/EdgeDevX.git
